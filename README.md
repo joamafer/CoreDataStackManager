@@ -1,5 +1,6 @@
 # CoreDataStackManager
 Simple CoreData Stack in a separated class from AppDelegate.
 
-# Extras
+Extras
+------------
 Save context with an error closure.
