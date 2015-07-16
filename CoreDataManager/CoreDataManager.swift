@@ -77,5 +77,27 @@ class CoreDataManager: NSObject
             }
         }
     }
+    
+    func saveContext (errorBlock: ((NSError) -> Void)?) {
+        if let moc = self.managedObjectContext {
+            var error: NSError? = nil
+            if moc.hasChanges {
+                if !moc.save(&error) {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    if let unwrappedErrorBlock = errorBlock {
+                        unwrappedErrorBlock(error!)
+                    }
+                    abort()
+                }
+            }
+        } else {
+            let error = NSError(domain: "CoreDataManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Attempted to save a nil NSManagedObjectContext. This CoreDataManager has no context - probably there was an earlier error trying to access the CoreData database file."])
+            if let unwrappedErrorBlock = errorBlock {
+                unwrappedErrorBlock(error)
+            }
+        }
+    }
    
 }
