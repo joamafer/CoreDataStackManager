@@ -178,6 +178,8 @@
 		4D60BAB51B517A6000F27E5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = jamartinez;
 				TargetAttributes = {
@@ -436,6 +438,7 @@
 				4D60BAE11B517A6100F27E5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D60BAE21B517A6100F27E5A /* Build configuration list for PBXNativeTarget "CoreDataManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +447,7 @@
 				4D60BAE41B517A6100F27E5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
