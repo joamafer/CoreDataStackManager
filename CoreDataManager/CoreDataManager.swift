@@ -31,7 +31,11 @@ class CoreDataManager: NSObject
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("CoreDataManager.sqlite")
+		let cleanAppName: String = {
+			let str = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+			return str.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+		}()
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(cleanAppName).sqlite")
 		let options = [
 			NSMigratePersistentStoresAutomaticallyOption: true,
 			NSInferMappingModelAutomaticallyOption: true
